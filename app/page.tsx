@@ -141,7 +141,7 @@ export default function Home() {
               lineHeight: 1.7,
               margin:     '0 0 32px',
             }}>
-              Real market intelligence for the tinned fish obsessive. Built on live data updated daily.
+              Real market intelligence for the tinned fish obsessive.<br />Built on live data updated daily.
             </p>
 
             {status === 'success' ? (
