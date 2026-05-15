@@ -17,32 +17,13 @@ const FEATURES = [
 
 function FeatureItem({ title, desc }: { title: string; desc: string }) {
   return (
-    <div style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
-      <span style={{
-        display:    'inline-block',
-        color:      '#25c47a',
-        fontSize:   '9px',
-        flexShrink: 0,
-        paddingTop: '3px',
-        lineHeight: 1,
-        fontStyle:  'normal',
-      }}>◆</span>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '12px' }}>
+      <span style={{ color: '#25c47a', fontSize: '9px', marginTop: '4px', flexShrink: 0 }}>◆</span>
       <div>
-        <div style={{
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontSize:   '13px',
-          fontWeight: 500,
-          color:      '#d9d3c4',
-          lineHeight: 1.4,
-        }}>
+        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '13px', fontWeight: 500, color: '#d9d3c4', lineHeight: 1.4 }}>
           {title}
         </div>
-        <div style={{
-          fontFamily: 'var(--font-inter), sans-serif',
-          fontSize:   '11px',
-          color:      'rgba(217,211,196,0.4)',
-          lineHeight: 1.55,
-        }}>
+        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', color: 'rgba(217,211,196,0.4)', lineHeight: 1.55 }}>
           {desc}
         </div>
       </div>
@@ -84,10 +65,9 @@ export default function Home() {
       display:        'flex',
       flexDirection:  'column',
       justifyContent: 'center',
-      padding:        '52px',
       boxSizing:      'border-box',
     }}>
-      <div>
+      <div style={{ maxWidth: '1100px', margin: '0 auto', padding: '52px 52px', width: '100%' }}>
 
         {/* TOP SECTION */}
         <div style={{
@@ -152,8 +132,8 @@ export default function Home() {
             </h1>
           </div>
 
-          {/* Right column — aligned to bottom of left column */}
-          <div style={{ alignSelf: 'end' }}>
+          {/* Right column */}
+          <div>
             <p style={{
               fontFamily: 'var(--font-inter), sans-serif',
               fontSize:   '16px',
