@@ -3,8 +3,8 @@
 import { useState } from 'react'
 
 const FEATURES = [
-  { title: 'Live price tracking',       desc: '53 retailers. Checked 3× daily.' },
-  { title: 'Price history',             desc: 'Weeks of data. Know when a sale is real.' },
+  { title: 'Live price tracking',       desc: 'Multiple retailers. Checked daily.' },
+  { title: 'Price history',             desc: 'Know when a sale is real.' },
   { title: 'Deal detection',            desc: 'Sales and markdowns, surfaced automatically.' },
   { title: 'Restock notifications',     desc: "Get the email the moment it's back." },
   { title: 'Cross-retailer comparison', desc: 'One product. Every price. Side by side.' },
@@ -20,10 +20,10 @@ function FeatureItem({ title, desc }: { title: string; desc: string }) {
     <div style={{ display: 'flex', flexDirection: 'row', gap: '12px' }}>
       <span style={{ color: '#25c47a', fontSize: '9px', marginTop: '4px', flexShrink: 0 }}>◆</span>
       <div>
-        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '13px', fontWeight: 500, color: '#d9d3c4', lineHeight: 1.4 }}>
+        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '15px', fontWeight: 500, color: '#d9d3c4', lineHeight: 1.4 }}>
           {title}
         </div>
-        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '11px', color: 'rgba(217,211,196,0.4)', lineHeight: 1.55 }}>
+        <div style={{ fontFamily: 'var(--font-inter), sans-serif', fontSize: '13px', color: 'rgba(217,211,196,0.55)', lineHeight: 1.55 }}>
           {desc}
         </div>
       </div>
@@ -81,7 +81,7 @@ export default function Home() {
           <div>
             <div style={{
               fontFamily:    'var(--font-playfair), serif',
-              fontSize:      '32px',
+              fontSize:      '56px',
               fontWeight:    900,
               fontStyle:     'normal',
               letterSpacing: '-1px',
