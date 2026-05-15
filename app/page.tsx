@@ -42,10 +42,10 @@ export default function Home() {
         {/* Wordmark */}
         <p style={{
           fontFamily:    'var(--font-playfair), serif',
-          fontSize:      '22px',
+          fontSize:      '48px',
           fontWeight:    900,
-          fontStyle:     'italic',
-          letterSpacing: '-0.03em',
+          fontStyle:     'normal',
+          letterSpacing: '-0.04em',
           color:         'var(--accent)',
           margin:        '0 0 48px',
           lineHeight:    1,
