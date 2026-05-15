@@ -30,151 +30,150 @@ export default function Home() {
   }
 
   return (
-    <main>
+    <main style={{
+      minHeight:      '100vh',
+      display:        'flex',
+      alignItems:     'center',
+      justifyContent: 'center',
+      padding:        '48px 24px',
+    }}>
+      <div style={{ width: '100%', maxWidth: '480px' }}>
 
-      {/* BAND 1 — HERO */}
-      <div style={{ borderBottom: '1px solid rgba(var(--text-rgb),0.07)' }}>
-        <div className="page-hero-grid">
+        {/* Wordmark */}
+        <p style={{
+          fontFamily:    'var(--font-playfair), serif',
+          fontSize:      '22px',
+          fontWeight:    900,
+          fontStyle:     'italic',
+          letterSpacing: '-0.03em',
+          color:         'var(--accent)',
+          margin:        '0 0 48px',
+          lineHeight:    1,
+        }}>
+          MrTinned
+        </p>
 
-          {/* Hero left — running head + headline */}
-          <div style={{
-            paddingTop:    '48px',
-            paddingBottom: '32px',
-            borderRight:   '1px solid rgba(var(--text-rgb),0.07)',
-            display:       'flex',
-            flexDirection: 'column',
+        {/* Label */}
+        <p style={{
+          fontSize:      '10px',
+          fontWeight:    400,
+          letterSpacing: '0.22em',
+          textTransform: 'uppercase',
+          color:         'rgba(var(--text-rgb),0.40)',
+          margin:        '0 0 24px',
+        }}>
+          The tinned fish market
+        </p>
+
+        {/* Headline */}
+        <h1 style={{
+          fontFamily:    'var(--font-playfair), serif',
+          fontSize:      'clamp(56px, 10vw, 88px)',
+          fontWeight:    400,
+          lineHeight:    1.0,
+          letterSpacing: '-0.03em',
+          margin:        '0 0 28px',
+        }}>
+          <span style={{ display: 'block', fontStyle: 'italic', color: 'var(--text-primary)' }}>Coming</span>
+          <span style={{ display: 'block', fontStyle: 'italic', fontWeight: 900, color: 'var(--accent)' }}>soon.</span>
+        </h1>
+
+        {/* Standfirst */}
+        <p style={{
+          fontSize:   '14px',
+          fontWeight: 300,
+          lineHeight: 1.85,
+          color:      'rgba(var(--text-rgb),0.55)',
+          margin:     '0 0 48px',
+          maxWidth:   '380px',
+        }}>
+          Prices, deals, and restocks for the tinned fish market. Updated daily across dozens of retailers.
+        </p>
+
+        {/* Form */}
+        {status === 'success' ? (
+          <p style={{
+            fontSize:   '13px',
+            fontWeight: 300,
+            color:      'var(--accent)',
+            margin:     0,
           }}>
+            You&apos;re on the list. We&apos;ll be in touch.
+          </p>
+        ) : (
+          <form onSubmit={handleSubmit}>
+            <div style={{
+              display:      'flex',
+              alignItems:   'stretch',
+              borderBottom: '1px solid rgba(var(--text-rgb),0.20)',
+              marginBottom: status === 'error' ? '10px' : '14px',
+            }}>
+              <input
+                type="email"
+                value={email}
+                onChange={e => setEmail(e.target.value)}
+                placeholder="Your email address"
+                required
+                disabled={status === 'loading'}
+                style={{
+                  flex:       1,
+                  background: 'transparent',
+                  border:     'none',
+                  outline:    'none',
+                  color:      'var(--text-primary)',
+                  fontSize:   '13px',
+                  fontWeight: 300,
+                  padding:    '10px 0',
+                  fontFamily: 'var(--font-inter)',
+                  minWidth:   0,
+                }}
+              />
+              <button
+                type="submit"
+                disabled={status === 'loading'}
+                aria-label="Subscribe"
+                style={{
+                  background: 'transparent',
+                  border:     'none',
+                  outline:    'none',
+                  cursor:     status === 'loading' ? 'default' : 'pointer',
+                  color:      status === 'loading'
+                    ? 'rgba(var(--text-rgb),0.25)'
+                    : 'var(--accent)',
+                  fontSize:   '16px',
+                  padding:    '10px 0 10px 16px',
+                  transition: 'color 0.15s',
+                  flexShrink: 0,
+                }}
+              >
+                {status === 'loading' ? '…' : '→'}
+              </button>
+            </div>
+
+            {status === 'error' && (
+              <p style={{
+                fontSize:   '12px',
+                color:      'rgba(var(--text-rgb),0.40)',
+                margin:     '0 0 14px',
+                fontWeight: 300,
+              }}>
+                {errorMsg}
+              </p>
+            )}
+
             <p style={{
               fontSize:      '10px',
               fontWeight:    400,
-              letterSpacing: '0.22em',
-              textTransform: 'uppercase',
-              color:         'rgba(var(--text-rgb),0.60)',
-              margin:        '0 0 32px',
-            }}>
-              The tinned fish market
-            </p>
-            <h1 style={{
-              fontSize:      'clamp(48px, 5vw, 66px)',
-              fontWeight:    400,
-              lineHeight:    1.05,
-              letterSpacing: '-2px',
-              color:         'var(--text-primary)',
+              letterSpacing: '0.05em',
+              color:         'rgba(var(--text-rgb),0.28)',
               margin:        0,
-              fontFamily:    'var(--font-playfair), serif',
             }}>
-              <span style={{ display: 'block', fontWeight: 400, fontStyle: 'italic', color: 'var(--text-primary)', fontFamily: 'var(--font-playfair), serif', letterSpacing: '0' }}>Coming</span>
-              <span style={{ display: 'block', fontWeight: 900, fontStyle: 'italic', color: 'var(--accent)',       fontFamily: 'var(--font-playfair), serif', letterSpacing: '0' }}>soon.</span>
-            </h1>
-          </div>
-
-          {/* Hero right — standfirst + email signup */}
-          <div style={{
-            paddingTop:    '48px',
-            paddingBottom: '0',
-            display:       'flex',
-            flexDirection: 'column',
-          }}>
-            <p style={{
-              fontSize:   '14px',
-              fontWeight: 300,
-              lineHeight: 1.9,
-              color:      'var(--text-secondary)',
-              margin:     0,
-            }}>
-              <span style={{ display: 'block' }}>Prices, deals, and restocks for the tinned fish market.</span>
-              <span style={{ display: 'block' }}>Updated daily across dozens of retailers.</span>
+              Weekly newsletter. Unsubscribe any time.
             </p>
+          </form>
+        )}
 
-            {/* Email signup — occupies the stats grid position */}
-            <div style={{ marginTop: '80px', paddingBottom: '32px' }}>
-              {status === 'success' ? (
-                <p style={{
-                  fontSize:   '13px',
-                  fontWeight: 300,
-                  color:      'var(--accent)',
-                }}>
-                  You&apos;re on the list. We&apos;ll be in touch.
-                </p>
-              ) : (
-                <form onSubmit={handleSubmit}>
-                  <div style={{
-                    display:      'flex',
-                    alignItems:   'stretch',
-                    borderBottom: '1px solid rgba(var(--text-rgb),0.20)',
-                    marginBottom: status === 'error' ? '10px' : '14px',
-                  }}>
-                    <input
-                      type="email"
-                      value={email}
-                      onChange={e => setEmail(e.target.value)}
-                      placeholder="Your email address"
-                      required
-                      disabled={status === 'loading'}
-                      style={{
-                        flex:       1,
-                        background: 'transparent',
-                        border:     'none',
-                        outline:    'none',
-                        color:      'var(--text-primary)',
-                        fontSize:   '13px',
-                        fontWeight: 300,
-                        padding:    '10px 0',
-                        fontFamily: 'var(--font-inter)',
-                        minWidth:   0,
-                      }}
-                    />
-                    <button
-                      type="submit"
-                      disabled={status === 'loading'}
-                      aria-label="Subscribe"
-                      style={{
-                        background: 'transparent',
-                        border:     'none',
-                        outline:    'none',
-                        cursor:     status === 'loading' ? 'default' : 'pointer',
-                        color:      status === 'loading'
-                          ? 'rgba(var(--text-rgb),0.25)'
-                          : 'var(--accent)',
-                        fontSize:   '16px',
-                        padding:    '10px 0 10px 16px',
-                        transition: 'color 0.15s',
-                        flexShrink: 0,
-                      }}
-                    >
-                      {status === 'loading' ? '…' : '→'}
-                    </button>
-                  </div>
-
-                  {status === 'error' && (
-                    <p style={{
-                      fontSize:   '12px',
-                      color:      'rgba(var(--text-rgb),0.40)',
-                      margin:     '0 0 14px',
-                      fontWeight: 300,
-                    }}>
-                      {errorMsg}
-                    </p>
-                  )}
-
-                  <p style={{
-                    fontSize:      '10px',
-                    fontWeight:    400,
-                    letterSpacing: '0.05em',
-                    color:         'rgba(var(--text-rgb),0.28)',
-                    margin:        0,
-                  }}>
-                    Weekly newsletter. Unsubscribe any time.
-                  </p>
-                </form>
-              )}
-            </div>
-
-          </div>
-
-        </div>
       </div>
-
     </main>
   )
 }
