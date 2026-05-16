@@ -41,6 +41,7 @@ const SECTIONS = [
     heading: 'Contact',
     body: [
       'Questions? Email hello@mrtinned.com.',
+      'MrTinned, PO Box 2941, Winnetka, CA 91396, US',
     ],
   },
 ]
