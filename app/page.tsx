@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 
 const FEATURES = [
   { title: 'Live price tracking',       desc: 'Multiple retailers. Checked daily.' },
@@ -220,6 +221,27 @@ export default function Home() {
                 </p>
               </form>
             )}
+
+            <div style={{ display: 'flex', gap: '16px', marginTop: '24px' }}>
+              <Link href="/privacy" style={{
+                fontFamily:     'var(--font-inter), sans-serif',
+                fontSize:       '10px',
+                color:          'rgba(217,211,196,0.22)',
+                textDecoration: 'none',
+                letterSpacing:  '0.05em',
+              }}>
+                Privacy Policy
+              </Link>
+              <Link href="/terms" style={{
+                fontFamily:     'var(--font-inter), sans-serif',
+                fontSize:       '10px',
+                color:          'rgba(217,211,196,0.22)',
+                textDecoration: 'none',
+                letterSpacing:  '0.05em',
+              }}>
+                Terms of Use
+              </Link>
+            </div>
           </div>
 
         </div>
